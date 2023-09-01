@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.open.ai.cecg</groupId>
-	<artifactId>OpenAI</artifactId>
+	<artifactId>OpenAI--Kaue</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>OpenAI</name>
 	<description>Integration with ChatGPT 3.5</description>

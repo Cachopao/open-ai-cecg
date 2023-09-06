@@ -34,7 +34,7 @@ public class ChatStreamComponent {
                 .map(ChatCompletionChoice::getMessage)
                 .filter(c -> c.getContent() !=null)
                 .map(ChatMessage::getContent)
-                .doOnError(Throwable::printStackTrace
+                .doOnError(Throwable::printStackTrace)
                 .doOnNext(sb::append)
                 .blockingLast();
         return sb.toString();

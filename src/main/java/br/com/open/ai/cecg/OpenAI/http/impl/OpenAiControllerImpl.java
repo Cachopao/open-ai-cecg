@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping(value = "/opneai-cecg")
 @RestController
-public record OpenAiControllerImpl(CallOpenAiService) implements OpenAiController {
+public record OpenAiControllerImpl(CallOpenAiService service) implements OpenAiController {
     @Override
     @PostMapping(value = "/science-fiction")
     @ResponseStatus(HttpStatus.OK)

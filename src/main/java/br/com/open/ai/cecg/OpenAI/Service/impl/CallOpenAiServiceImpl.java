@@ -6,9 +6,10 @@ import br.com.open.ai.cecg.OpenAI.http.data.request.ScienceFictionRequestDTO;
 import com.theokanning.openai.completion.chat.ChatCompletionRequest;
 import com.theokanning.openai.completion.chat.ChatMessage;
 import com.theokanning.openai.completion.chat.ChatMessageRole;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public record CallOpenAiServiceImpl(ChatStreamComponent streamComponent) implements CallOpenAiService {
 
     public static final String SCIENCE_FICTION_PROMPT_MESSAGE = "Gere uma estória de ficção cientifica de acordo com o " + "seguinte cenário: %s";

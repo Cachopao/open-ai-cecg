@@ -14,12 +14,14 @@ import java.util.List;
 public record CallOpenAiServiceImpl(ChatStreamComponent streamComponent) implements CallOpenAiService {
 
     public static final String SCIENCE_FICTION_PROMPT_MESSAGE = "Gere uma estória de ficção cientifica de acordo com o " + "seguinte cenário: %s";
+    public static final String CANTADAS_PROMPT_MESSAGE = "Gere uma cantada de negão de acordo com o " + "seguinte cenário: %s";
+
 
     @Override
     public String generateScienceFiction(ScienceFictionRequestDTO taleRequestDTO) {
         ChatCompletionRequest chatCompletionRequest =
                 streamComponent.createChatStreamRequest(List.of(
-                        new ChatMessage(ChatMessageRole.SYSTEM.value(), String.format(SCIENCE_FICTION_PROMPT_MESSAGE))
+                        new ChatMessage(ChatMessageRole.SYSTEM.value(), String.format(SCIENCE_FICTION_PROMPT_MESSAGE, taleRequestDTO.scenario()))
                 ));
         return streamComponent.getChatStreamResult(chatCompletionRequest);
 
@@ -28,7 +30,7 @@ public record CallOpenAiServiceImpl(ChatStreamComponent streamComponent) impleme
     @Override
     public String generateCantadasDoNegao(CantadasDoNegaoRequestDTO requestDTO) {
         ChatCompletionRequest chatCompletionRequest = streamComponent.createChatStreamRequest(List.of(
-                new ChatMessage(ChatMessageRole.SYSTEM.value(), String.format(SCIENCE_FICTION_PROMPT_MESSAGE))
+                new ChatMessage(ChatMessageRole.SYSTEM.value(), String.format(CANTADAS_PROMPT_MESSAGE, requestDTO.cantada()))
         ));
         return streamComponent.getChatStreamResult(chatCompletionRequest);
     }
